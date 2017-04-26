@@ -106,11 +106,11 @@ gray_img_m2 = rgb2gray(img_middle_rec2);
 gray_img_l = rgb2gray(img_left_rec);
 
 % %%Image smoothing
-% h=fspecial('gaussian',5,1);
-% gray_img_m = imfilter(gray_img_m,h);
-% gray_img_r = imfilter(gray_img_r,h);
-% gray_img_m2 = imfilter(gray_img_m2,h);
-% gray_img_l = imfilter(gray_img_l,h);
+ h=fspecial('gaussian',5,1);
+ gray_img_m = imfilter(gray_img_m,h);
+ gray_img_r = imfilter(gray_img_r,h);
+ gray_img_m2 = imfilter(gray_img_m2,h);
+ gray_img_l = imfilter(gray_img_l,h);
 
 
 %Disparity PARAMS
@@ -240,8 +240,8 @@ ptCloudOut = pcmerge(movingReg,xyzPoints2_down,1);
 %figure();pcshow(ptCloudOut);
 
 %% Accuracy estimation
-th_dr = 3.3;
-th_dr2 = 3.3/2;
+th_dr = 3;
+th_dr2 = 3/2;
 dr = sqrt(squaredError);
 acc = sum(dr<th_dr)/length(dr)
 acc2 = sum(dr<th_dr2)/length(dr)
